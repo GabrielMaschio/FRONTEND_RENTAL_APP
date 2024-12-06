@@ -1,0 +1,75 @@
+<div class="client-form-container">
+  <div class="header-actions">
+    <h2>{{ isEditMode ? 'Editar Cliente' : 'Novo Cliente' }}</h2>
+  </div>
+
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()" class="form">
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Nome"
+      >
+      <div class="error-message" *ngIf="clientForm.get('name')?.errors?.['required'] && clientForm.get('name')?.touched">
+        Nome é obrigatório
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Email"
+      >
+      <div class="error-message" *ngIf="clientForm.get('email')?.errors?.['required'] && clientForm.get('email')?.touched">
+        Email é obrigatório
+      </div>
+      <div class="error-message" *ngIf="clientForm.get('email')?.errors?.['email'] && clientForm.get('email')?.touched">
+        Email inválido
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="telefone">Telefone</label>
+      <input
+        id="phone"
+        type="tel"
+        formControlName="phone"
+        placeholder="(00) 00000-0000"
+        mask="(00) 00000-0000"
+        [dropSpecialCharacters]="false"
+      >
+      <div class="error-message" *ngIf="clientForm.get('phone')?.errors?.['required'] && clientForm.get('phone')?.touched">
+        Telefone é obrigatório
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="!isEditMode">
+      <label for="senha">Senha</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="Digite sua senha">
+      <div *ngIf="clientForm.get('password')?.errors?.['required'] && clientForm.get('password')?.touched">
+        Senha é obrigatória
+      </div>
+      <div *ngIf="clientForm.get('password')?.errors?.['minlength'] && clientForm.get('password')?.touched">
+        Senha deve ter no mínimo 8 caracteres
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn-secondary" (click)="onCancel()">
+        Cancelar
+      </button>
+      <button type="submit" class="btn-primary" [disabled]="clientForm.invalid">
+        {{ isEditMode ? 'Atualizar' : 'Salvar' }}
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,86 @@
+@import "../../../styles/variables.scss";
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      app-row {
+        margin-top: 20px;
+      }
+  }
+
+  .main-section {
+      flex: 1;
+      img {
+          width: 100%;
+          height: 100vh;
+          object-fit: cover;
+      };
+  }
+
+  .form-section {
+    flex-grow: .5;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 360px;
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 0 13px 0 13px;
+
+        h1 {
+          color: #3563E9;
+          font-family: "Plus Jakarta Sans", sans-serif;
+          font-size: 32px;
+          font-weight: bold;
+        }
+
+        h2 {
+          font-size: 30px;
+          font-weight: 600;
+          width: 360px;
+          text-align: center;
+          font-family: inter;
+        }
+
+        p {
+          font-size: 16px;
+          color: $text-color;
+        }
+      }
+
+      button {
+        width: 100%;
+        border-radius: .5rem;
+        font-size: 16px;
+        font-weight: 500;
+        border: none;
+        background-color: transparent;
+        padding: 12px 24px;
+        cursor: pointer;
+        background-color: $primary-color;
+        color: white;
+
+        &:disabled {
+            opacity: 0.5;
+        }
+      }
+    }
+  }
+}

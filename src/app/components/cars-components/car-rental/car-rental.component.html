@@ -1,0 +1,148 @@
+<main id="main">
+ <section class="main-section">
+    <div class="title">
+      <h1>Informações da Locação</h1>
+      <p>Por favor preencha os campos.</p>
+    </div>
+
+    <form [formGroup]="rentalForm">
+      <div class="wrapper">
+        <div class="form-input">
+          <label for="cars">Carro</label>
+
+          <div class="select-input">
+            <select class="cars" formControlName="cars" id="cars" (change)="onCarChange('cars')">>
+              <option *ngFor="let car of cars" [value]="car.car_id">{{ car.name }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-input">
+          <label for="rental_days">Quantidade de dias</label>
+          <div class="input-wrapper">
+            <input
+              matInput
+              type="number"
+              placeholder="0"
+              id="rental_days"
+              formControlName="rental_days"
+              readonly
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="form-input">
+          <label for="start_date">Data de Início</label>
+          <div class="input-wrapper">
+            <div class="date-picker">
+              <div>
+                <button mat-raised-button (click)="start_picker.open()"><img src="/assets/images/calendar-check.png" alt=""></button>
+                <input
+                  matInput [min]="minDate" [max]="maxDate"
+                  type="text"
+                  [matDatepicker]="start_picker"
+                  placeholder="DD/MM/YYYY"
+                  id="start_date"
+                  formControlName="start_date"
+                />
+              </div>
+              <mat-datepicker #start_picker disabled="false"></mat-datepicker>
+            </div>
+            <div class="select-input">
+              <i class="bi bi-clock"></i>
+              <select formControlName="start_hour" id="start_hour" (change)="onSelectionChange($event)">
+                <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-input">
+          <label for="end_date">Data de Devolução</label>
+          <div class="input-wrapper">
+            <div class="date-picker">
+              <div>
+                <button mat-raised-button (click)="end_picker.open()"><img src="/assets/images/calendar-check.png" alt=""></button>
+                <input
+                  matInput [min]="minEndDate" [max]="maxDate"
+                  type="text"
+                  [matDatepicker]="end_picker"
+                  placeholder="DD/MM/YYYY"
+                  id="end_date"
+                  formControlName="end_date"
+                />
+              </div>
+              <mat-datepicker #end_picker disabled="false"></mat-datepicker>
+            </div>
+            <div class="select-input">
+              <i class="bi bi-clock"></i>
+              <select formControlName="end_hour" id="end_hour" (change)="onSelectionChange($event)">
+                <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <section class="rental-section">
+    <div class="title">
+      <h1>Resumo da Locação</h1>
+      <p>Os preços podem mudar dependendo da duração do aluguel e do preço do seu carro alugado.</p>
+    </div>
+
+    <div class="rental-car">
+      <div class="img"><img src="/assets/images/car_category{{car.category.category_id}}.png" alt=""></div>
+      <div class="car-info">
+        <h2>{{ car.name }}</h2>
+        <p>{{ car.category.name }}</p>
+      </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="rental-info">
+      <div class="info">
+        <div class="details">
+          <p>Preço por dia</p>
+          <h2>{{ car.rental_price | currency:'BRL':'symbol':'1.2-2' }}</h2>
+        </div>
+
+        <div class="details">
+          <p>Subtotal</p>
+          <h2>{{ totalPrice | currency:'BRL':'symbol':'1.2-2' }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="cupom">
+      <input type="text" placeholder="Cupom de desconto">
+      <button>Aplicar</button>
+    </div>
+
+    <div class="total">
+      <div>
+        <h2>Preço Total:</h2>
+        <p>Preço total com desconto.</p>
+      </div>
+
+      <h1>{{ totalPrice | currency:'BRL':'symbol':'1.2-2' }}</h1>
+    </div>
+
+    <button
+      class="send"
+      [disabled]="!rentalForm.valid"
+      (click)="onSubmitRental()">
+      Alugar agora
+    </button>
+  </section>
+
+</main>
+
+<app-car-modal
+  *ngIf="isModalOpen"
+  [carData]="carModalData"
+  (closeModal)="closeModal('cars')">
+</app-car-modal>

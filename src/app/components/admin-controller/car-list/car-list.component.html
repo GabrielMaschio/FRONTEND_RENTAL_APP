@@ -1,0 +1,64 @@
+<div class="car-list">
+  @if (isLoading) {
+    <div class="loading">Carregando carros...</div>
+  }
+
+  @if (errorMessage) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  }
+
+  @if (!isLoading && !errorMessage && carros.length) {
+    <div class="car-list-container">
+      <div class="header-actions">
+        <h2>Carros</h2>
+        <button class="btn-primary" [routerLink]="['novo']">
+          + Adicionar
+        </button>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Cod</th>
+              <th>Modelo</th>
+              <th>Marca</th>
+              <th>Ano</th>
+              <th>Placa</th>
+              <th>Valor Diária</th>
+              <th>Categoria</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let carro of carros">
+              <td>{{ carro.car_id }}</td>
+              <td><strong>{{ carro.name }}</strong></td>
+              <td><strong>{{ carro.brand }}</strong></td>
+              <td>{{ carro.year }}</td>
+              <td>{{ carro.license_plate }}</td>
+              <td>{{ carro.rental_price | currency:'BRL' }}</td>
+              <td><strong>{{ carro.category.name }}</strong></td>
+              <td class="actions">
+                <button class="btn-icon edit" (click)="onEdit(carro)">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button class="btn-icon delete" (click)="onDelete(carro)">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  }
+
+  @if (!isLoading && !errorMessage && !carros.length) {
+    <div class="no-cars">
+      Nenhum carro encontrado
+    </div>
+  }
+</div>

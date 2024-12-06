@@ -1,0 +1,19 @@
+<div class="navbar">
+  <h1 class="logo">MOVECAR</h1>
+
+  <ul class="navbar-nav">
+    <li><a [routerLink]="['/home']" routerLinkActive="active">Início</a></li>
+    <li><a [routerLink]="['/cars']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Veículos</a></li>
+    <li><a [routerLink]="['/cars/list']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Locaçôes</a></li>
+  </ul>
+
+  <div class="navbar-login" *ngIf="!isLoggedIn">
+    <button class="login" [routerLink]="['/login']">Entrar</button>
+    <button class="cadastrar" [routerLink]="['/signup']">Cadastrar-se</button>
+  </div>
+
+  <div class="navbar-user" *ngIf="isLoggedIn">
+    <span class="username">Olá, {{ username }}</span>
+    <button class="logout" (click)="logout()">Sair</button>
+  </div>
+</div>

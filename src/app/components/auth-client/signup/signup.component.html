@@ -1,0 +1,49 @@
+<app-default-auth-layout
+  title="Vamos criar a sua conta"
+  subtitle="Bem-vindo! Insira os seus dados."
+  primaryBtnText="Cadastrar-me"
+  rowText="Já tem uma conta?"
+  rowSpan="Entrar"
+  [disablePrimaryButton]="!singupForm.valid"
+  (submit)="submit()"
+  page="login"
+>
+  <form [formGroup]="singupForm">
+    <app-primary-input
+      formControlName="name"
+      inputName="name"
+      type="text"
+      placeHolder="Nome"
+      label="Nome"
+      >
+   </app-primary-input>
+
+   <app-primary-input
+      formControlName="email"
+      inputName="email"
+      type="email"
+      placeHolder="Email"
+      label="Email"
+      >
+    </app-primary-input>
+
+   <app-primary-input
+      formControlName="phone"
+      inputName="phone"
+      type="text"
+      placeHolder="(00) 00000-0000"
+      label="Telefone"
+      >
+    </app-primary-input>
+
+   <app-primary-input
+      formControlName="password"
+      inputName="password"
+      type="password"
+      placeHolder="••••••••"
+      label="Senha"
+      >
+    </app-primary-input>
+  </form>
+</app-default-auth-layout>
+

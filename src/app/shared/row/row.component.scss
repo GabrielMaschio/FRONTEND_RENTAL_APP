@@ -1,0 +1,18 @@
+@import '../../../styles/variables.scss';
+
+div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  p {
+    font-size: 14px;
+    text-decoration: none;
+    color: $grey-color ;
+
+    span {
+      color: $primary-color;
+      cursor: pointer;
+    }
+  }
+}

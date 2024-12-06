@@ -1,0 +1,37 @@
+<aside class="sidebar">
+  <div class="logo">
+    <h1>MOVECAR</h1>
+  </div>
+
+  <nav class="navigation">
+    <ul class="nav-list">
+      <li class="nav-item" [routerLinkActive]="'active'">
+        <a [routerLink]="['/admin/clientes']" class="nav-link">
+          <i class="bi bi-people"></i>
+          <span>Clientes</span>
+        </a>
+      </li>
+
+      <li class="nav-item" [routerLinkActive]="'active'">
+        <a [routerLink]="['/admin/carros']" class="nav-link">
+          <i class="bi bi-car-front"></i>
+          <span>Carros</span>
+        </a>
+      </li>
+
+      <li class="nav-item" [routerLinkActive]="'active'">
+        <a [routerLink]="['/admin/alugueis']" class="nav-link">
+          <i class="bi bi-key"></i>
+          <span>Aluguéis</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="logout">
+    <button class="logout-button" (click)="onLogout()">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Log Out</span>
+    </button>
+  </div>
+</aside>

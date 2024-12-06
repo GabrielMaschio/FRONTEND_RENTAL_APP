@@ -1,0 +1,102 @@
+<div class="rental-form-container">
+  <div class="header-actions">
+    <h2>{{ isEditMode ? 'Editar Aluguel' : 'Novo Aluguel' }}</h2>
+  </div>
+
+  <form [formGroup]="rentalForm" (ngSubmit)="onSubmit()" class="form">
+    <div class="form-group">
+      <label for="customer_fk">Cliente</label>
+      <select
+        id="customer_fk"
+        formControlName="customer_fk"
+        class="form-select"
+      >
+        <option value="">Selecione um cliente</option>
+        @for (client of clients; track client.customer_id) {
+          <option [value]="client.customer_id">{{ client.name }}</option>
+        }
+      </select>
+      <div class="error-message" *ngIf="rentalForm.get('customer_fk')?.errors?.['required'] && rentalForm.get('customer_fk')?.touched">
+        Cliente é obrigatório
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="car_fk">Carro</label>
+      <select
+        id="car_fk"
+        formControlName="car_fk"
+        class="form-select"
+      >
+        <option value="">Selecione um carro</option>
+        @for (car of cars; track car.car_id) {
+          <option [value]="car.car_id">{{ car.brand }} {{ car.name }} - {{ car.rental_price | currency:'BRL' }}/dia</option>
+        }
+      </select>
+      <div class="error-message" *ngIf="rentalForm.get('car_fk')?.errors?.['required'] && rentalForm.get('car_fk')?.touched">
+        Carro é obrigatório
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="start_date">Data de Início</label>
+      <input
+        id="start_date"
+        type="date"
+        formControlName="start_date"
+      >
+      <div class="error-message" *ngIf="rentalForm.get('start_date')?.errors?.['required'] && rentalForm.get('start_date')?.touched">
+        Data de início é obrigatória
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="end_date">Data de Fim</label>
+      <input
+        id="end_date"
+        type="date"
+        formControlName="end_date"
+      >
+      <div class="error-message" *ngIf="rentalForm.get('end_date')?.errors?.['required'] && rentalForm.get('end_date')?.touched">
+        Data de fim é obrigatória
+      </div>
+      <div class="error-message" *ngIf="rentalForm.get('end_date')?.errors?.['invalidDate']">
+        Data de fim deve ser posterior à data de início
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="rental_days">Quantidade de Dias</label>
+      <input
+        type="text"
+        id="rental_days"
+        formControlName="rental_days"
+        class="form-control"
+        readonly
+      >
+    </div>
+
+    @if (isEditMode) {
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select
+          id="status"
+          formControlName="status"
+          class="form-select"
+        >
+          <option value="true">Pendente</option>
+          <option value="false">Concluído</option>
+        </select>
+      </div>
+    }
+
+    <div class="form-actions">
+      <button type="button" class="btn-secondary" (click)="onCancel()">
+        Cancelar
+      </button>
+      <button type="submit" class="btn-primary" [disabled]="rentalForm.invalid">
+        {{ isEditMode ? 'Atualizar' : 'Criar' }}
+      </button>
+    </div>
+  </form>
+</div>

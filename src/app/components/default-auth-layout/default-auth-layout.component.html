@@ -1,0 +1,30 @@
+<main>
+  <section class="main-section">
+    <img src="/assets/images/authImage.png" alt="">
+  </section>
+
+  <section class="form-section">
+    <div class="wrapper">
+      <div class="header">
+        <h1>MOVECAR</h1>
+        <h2>{{ title }}</h2>
+        <p>{{ subtitle }}</p>
+      </div>
+
+      <ng-content></ng-content>
+
+      <button
+        (click)="submit()"
+        [disabled]="disablePrimaryButton"
+      >
+        {{ primaryBtnText }}
+      </button>
+    </div>
+    <app-row
+      text={{rowText}}
+      span={{rowSpan}}
+      (navigate)="navigate()"
+    >
+    </app-row>
+  </section>
+</main>

@@ -1,0 +1,78 @@
+@import "../../../styles/variables.scss";
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 80px 32px 80px;
+  background-color: white;
+
+  .logo {
+    color: #3563E9;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  &-nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    a {
+      text-decoration: none;
+      color: $text-color;
+      font-size: 20px;
+    }
+  }
+
+  &-login {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    button {
+      color: black;
+      font-size: 16px;
+      padding: 6px 12px;
+      font-weight: 500;
+      background-color: transparent;
+      cursor: pointer;
+      border-radius: 8px;
+
+      &.login {
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+
+  .active {
+    font-weight: bold;
+  }
+
+  &-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .username {
+      color: #1E1B1B;
+      font-weight: 500;
+    }
+
+    .logout {
+      padding: 8px 24px;
+      border-radius: 8px;
+      background-color: #FF6B6B;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #FF5252;
+      }
+    }
+  }
+}

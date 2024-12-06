@@ -1,0 +1,98 @@
+<div class="car-form-container">
+  <div class="header-actions">
+    <h2>{{ isEditMode ? 'Editar Carro' : 'Novo Carro' }}</h2>
+  </div>
+
+  <form [formGroup]="carForm" (ngSubmit)="onSubmit()" class="form">
+    <div class="form-group">
+      <label for="brand">Marca</label>
+      <input
+        id="brand"
+        type="text"
+        formControlName="brand"
+        placeholder="Marca do veículo"
+      >
+      <div class="error-message" *ngIf="carForm.get('brand')?.errors?.['required'] && carForm.get('brand')?.touched">
+        Marca é obrigatória
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Modelo</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Modelo do veículo"
+      >
+      <div class="error-message" *ngIf="carForm.get('name')?.errors?.['required'] && carForm.get('name')?.touched">
+        Modelo é obrigatório
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="year">Ano</label>
+      <input
+        id="year"
+        type="text"
+        formControlName="year"
+        placeholder="Ano do veículo"
+      >
+      <div class="error-message" *ngIf="carForm.get('year')?.errors?.['required'] && carForm.get('year')?.touched">
+        Ano é obrigatório
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Valor da diária</label>
+      <input
+        id="rental_price"
+        type="number"
+        formControlName="rental_price"
+        placeholder="Valor da diária"
+      >
+      <div class="error-message" *ngIf="carForm.get('rental_price')?.errors?.['required'] && carForm.get('rental_price')?.touched">
+        Preço é obrigatório
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="license_plate">Placa</label>
+      <input
+        id="license_plate"
+        type="text"
+        formControlName="license_plate"
+        placeholder="Placa do veículo"
+      >
+      <div class="error-message" *ngIf="carForm.get('license_plate')?.errors?.['required'] && carForm.get('license_plate')?.touched">
+        Placa é obrigatória
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="category_fk">Categoria</label>
+      <select
+        id="category_fk"
+        formControlName="category_fk"
+        class="form-select"
+      >
+        <option value="">Selecione uma categoria</option>
+        @for (category of categories; track category.category_id) {
+          <option [value]="category.category_id">{{ category.name }}</option>
+        }
+      </select>
+      <div class="error-message" *ngIf="carForm.get('category_fk')?.errors?.['required'] && carForm.get('category_fk')?.touched">
+        Categoria é obrigatória
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">
+        {{ isEditMode ? 'Atualizar' : 'Criar' }}
+      </button>
+      <button type="button" (click)="onCancel()" class="btn btn-secondary">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>

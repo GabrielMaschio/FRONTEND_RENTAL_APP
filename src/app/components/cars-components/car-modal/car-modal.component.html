@@ -1,0 +1,48 @@
+<div class="modal-overlay" (click)="onOverlayClick($event)">
+  <div class="modal-content">
+    <!-- Cabeçalho do Modal -->
+    <div class="modal-header">
+      <div class="success-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h2>Aluguel Concluído!</h2>
+      <p>Seu aluguel foi confirmado com sucesso. Obrigado por utilizar nossos serviços!</p>
+      <button class="close-button" (click)="onClose('cars')" aria-label="Fechar">×</button>
+    </div>
+
+    <!-- Conteúdo do Modal -->
+    <div class="car-details">
+      <div class="car-image">
+        <img [src]="carData.imageUrl" [alt]="carData.model">
+      </div>
+
+      <div class="car-info">
+        <div class="info-header">
+          <h3>{{ carData.category }}</h3>
+          <p>{{ carData.model }}</p>
+        </div>
+
+        <div class="info-container">
+          <p>Data de início:</p>
+          <p class="price">{{ carData.startDate }}</p>
+        </div>
+
+        <div class="info-container">
+          <p>Data de fim:</p>
+          <p class="price">{{ carData.endDate }}</p>
+        </div>
+
+        <div class="info-container">
+          <p class="">Preço total:</p>
+          <p class="price">R${{ carData.price }},00</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botões do Modal -->
+    <div class="modal-actions">
+      <button class="btn-primary" (click)="onClose('cars')">Ver mais</button>
+      <button class="btn-secondary" (click)="onClose('cars/list')">Detalhes</button>
+    </div>
+  </div>
+</div>

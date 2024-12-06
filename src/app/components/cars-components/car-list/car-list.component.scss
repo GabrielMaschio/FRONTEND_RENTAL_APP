@@ -1,0 +1,197 @@
+@import "../../../../styles/variables.scss";
+
+.rental-list {
+  padding: 2rem;
+  width: 100%;
+  margin-top: 6rem;
+
+  h2 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .rentals-grid {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .rental-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0px 12px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem;
+
+  .rental-left-content {
+      display: flex;
+      gap: 1.5rem;
+      flex: 1;
+
+    .rental-image {
+      max-width: 395px;
+      max-height: 302px;
+      flex-shrink: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+    }
+
+    .car-details {
+      h3 {
+        font-size: 32px;
+        color: black;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .car-model {
+        font-size: 20px;
+        color: $text-color;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      .rental-details {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+
+        .date-info {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          gap: 0.5rem;
+
+          .date-group {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+
+  .rental-right-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .price-status {
+      text-align: right;
+      font-weight: bold;
+
+
+      .status {
+        display: inline-block;
+        padding-left: 0.5rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+
+        &.active {
+          color: #2e7d32;
+        }
+
+        &.finished {
+          color: #c62828;
+        }
+      }
+    }
+
+    .price-info {
+      display: flex;
+      margin-bottom: 1rem;
+      font-weight: bold;
+
+      .divider {
+        width: 2px;
+        height: 100%;
+        background-color: $text-color;
+        margin: 0 1rem;
+      }
+
+      .daily-price, .total-price {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+    button {
+      align-self: flex-end;
+      padding: 0.75rem 1.5rem;
+      background-color: #ffc107;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &.btn-finish:hover {
+        background-color: #ffb300;
+      }
+
+      &.btn-cancel {
+        opacity: .5;
+
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+}
+
+.loading, .no-rentals {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.error-message {
+  text-align: center;
+  padding: 1rem;
+  color: #dc3545;
+  background-color: #f8d7da;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .rental-list {
+    padding: 1rem;
+
+    .rental-card {
+      flex-direction: column;
+
+      .rental-image {
+        width: 100%;
+        height: 200px;
+      }
+
+      .rental-details {
+        flex-direction: column;
+
+        .price-status {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

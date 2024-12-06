@@ -1,0 +1,13 @@
+<div class="input-wrapper">
+  <label class="label" [for]="inputName"> {{ label }} </label>
+
+  <div class="input-content">
+      <input
+          [type]="type"
+          [placeholder]="placeHolder"
+          [value]="value"
+          [id]="inputName"
+          (input)="onInput($event)"
+      >
+  </div>
+</div>

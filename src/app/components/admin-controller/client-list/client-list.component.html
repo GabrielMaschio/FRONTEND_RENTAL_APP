@@ -1,0 +1,60 @@
+<div class="client-list">
+  @if (isLoading) {
+    <div class="loading">Carregando clientes...</div>
+  }
+
+  @if (errorMessage) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  }
+
+  @if (!isLoading && !errorMessage && clientes.length) {
+    <div class="client-list-container">
+      <div class="header-actions">
+        <h2>Clientes</h2>
+        <button class="btn-primary" [routerLink]="['novo']">
+          + Adicionar
+        </button>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Cod</th>
+              <th>Data de Criação</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Telefone</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cliente of clientes">
+              <td>{{ cliente.customer_id }}</td>
+              <td>{{ cliente.createdAt | date:'dd/MM/yyyy' }}</td>
+              <td><strong>{{ cliente.name }}</strong></td>
+              <td><strong>{{ cliente.email }}</strong></td>
+              <td>{{ cliente.phone }}</td>
+              <td class="actions">
+                <button class="btn-icon edit" (click)="onEdit(cliente)">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button class="btn-icon delete" (click)="onDelete(cliente)">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  }
+
+  @if (!isLoading && !errorMessage && !clientes.length) {
+    <div class="no-clients">
+      Nenhum cliente encontrado
+    </div>
+  }
+</div>

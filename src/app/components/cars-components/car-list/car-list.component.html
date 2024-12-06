@@ -1,0 +1,91 @@
+<div class="rental-list">
+  @if (isLoading) {
+    <div class="loading">Carregando locações...</div>
+  }
+
+  @if (errorMessage) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  }
+
+  @if (!isLoading && !errorMessage) {
+    <div class="rental-list-container">
+      <h2>Histórico de Locações</h2>
+
+      <div class="rentals-grid">
+        @for (rental of cars; track rental.car_fk) {
+          <div class="rental-card">
+            <div class="rental-left-content">
+              <div class="rental-image">
+                <img [src]="'assets/images/car_category' + rental.car.category.category_id + '.png'" [alt]="rental.car.name">
+              </div>
+
+              <div class="car-details">
+                <h3>{{ rental.car.category.name }}</h3>
+                <p class="car-model">{{ rental.car.brand }} {{ rental.car.name }}</p>
+
+                <div class="rental-details">
+                  <div class="date-info">
+                    <div class="date-group">
+                      <span class="label">Data de início:</span>
+                      <span class="value">{{ rental.start_date | date:'dd/MM/yyyy' }}</span>
+                    </div>
+
+                    <div class="date-group">
+                      <span class="label">Data de fim:</span>
+                      <span class="value">{{ rental.end_date | date:'dd/MM/yyyy' }}</span>
+                    </div>
+
+                    <div class="date-group">
+                        <span class="label">Total de dias:</span>
+                        <span class="value">{{ rental.rental_days }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rental-right-content">
+              <div class="price-status">
+                <span>Status:</span>
+
+                <div class="status" [class.active]="rental.status === true" [class.finished]="rental.status === false">
+                  <span class="status-text">Locação {{ rental.status === true ? 'em Andamento' : 'Finalizada' }}</span>
+                </div>
+              </div>
+
+              <div class="price-info">
+                <div class="daily-price">
+                  <span class="amount">{{ rental.car.rental_price | currency:'BRL' }}</span>
+                  <span class="period">por dia</span>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="total-price">
+                  <span class="amount">{{ rental.total_price | currency:'BRL' }}</span>
+                  <span class="period">Total</span>
+                </div>
+              </div>
+
+              @if (rental.status === true) {
+                <button class="btn-finish">Finalizar Aluguel</button>
+              }
+
+              @if (rental.status === false) {
+                <button class="btn-cancel">Finalizar Aluguel</button>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  @if (!isLoading && !errorMessage && !cars.length) {
+    <div class="no-rentals">
+      Nenhuma locação encontrada!
+    </div>
+  }
+</div>

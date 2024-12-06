@@ -1,0 +1,137 @@
+@import "../../../styles/variables.scss";
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: $primary-bg;
+
+  app-navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  section {
+    padding: 0 80px 0 80px;
+  }
+
+  .main-section {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8rem;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+
+    .text-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 20px;
+      width: 100%;
+      max-width: 740px;
+
+      h1 {
+        font-size: 36px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+
+      p {
+        max-width: 684px;
+      }
+
+      button {
+        margin-top: 30px;
+        max-width: 220px;
+        padding: 10px;
+        border-radius: .5rem;
+        font-size: 16px;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        background-color: $primary-color;
+        color: white;
+      }
+    }
+
+    .img-container {
+      display: flex;
+      margin-top: 8px;
+
+
+
+    }
+  }
+
+  .category-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+
+    h1 {
+      font-size: 38px;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 20px;
+    }
+  }
+
+  .info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 38px;
+      font-weight: 500;
+      max-width: 654px;
+      color: #333333;
+      margin-bottom: 56px;
+      line-height: 1.2;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      .card-content {
+        display: flex;
+        gap: 24px;
+
+        .card-box {
+          width: 64px;
+          height: 64px;
+          border-radius: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          background-color: #ECF5FF;
+          box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-text {
+          max-width: 440px;
+        }
+      }
+    }
+  }
+
+  app-footer {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+  }
+}

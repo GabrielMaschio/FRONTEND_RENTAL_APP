@@ -1,0 +1,16 @@
+<div class="admin-layout">
+  <app-sidebar></app-sidebar>
+
+  <main class="content">
+    <header class="content-header">
+      <h1 class="page-title">{{ pageTitle }}</h1>
+      <div class="timestamp">
+        {{ currentDateTime | date:'EEE, dd MMM, yyyy, HH:mm' }}
+      </div>
+    </header>
+
+    <div class="content-body">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,97 @@
+.rental-form-container {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+
+  .header-actions {
+    margin-bottom: 2rem;
+
+    h2 {
+      color: #333;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    label {
+      font-weight: 500;
+      color: #4a4a4a;
+      font-size: 0.9rem;
+    }
+
+    input, select {
+      padding: 0.75rem;
+      border: 2px solid #B6C3D5;
+      background-color: #F5F7FA;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+      }
+
+      &::placeholder {
+        color: #999;
+      }
+
+      &:disabled {
+        background-color: #e9ecef !important;
+        cursor: default !important;
+        opacity: 0.7 !important;
+        border-color: #ced4da !important;
+      }
+    }
+
+    .error-message {
+      color: #dc3545;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+      margin-top: 1rem;
+
+      button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+// Estilos responsivos
+@media (max-width: 768px) {
+  .rental-form-container {
+    .form {
+      .form-group {
+        flex-direction: column;
+      }
+    }
+  }
+}

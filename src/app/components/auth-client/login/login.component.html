@@ -1,0 +1,38 @@
+<app-default-auth-layout
+  title="Entre na sua conta"
+  subtitle="Bem-vindo de volta! Insira os seus dados."
+  primaryBtnText="Entrar"
+  rowText="Não tem uma conta?"
+  rowSpan="Cadastre-se"
+  [disablePrimaryButton]="!loginForm.valid"
+  (submit)="submit()"
+  page="signup"
+>
+  <form [formGroup]="loginForm">
+    <app-primary-input
+      formControlName="email"
+      inputName="email"
+      type="email"
+      placeHolder="Email"
+      label="Email"
+      >
+   </app-primary-input>
+
+   <app-primary-input
+      formControlName="password"
+      inputName="password"
+      type="password"
+      placeHolder="••••••••"
+      label="Senha"
+      >
+
+    </app-primary-input>
+    <app-row
+      text=""
+      span="Esqueci minha senha"
+      (navigate)="navigate()"
+    >
+    </app-row>
+  </form>
+</app-default-auth-layout>
+

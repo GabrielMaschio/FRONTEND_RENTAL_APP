@@ -1,0 +1,66 @@
+<div class="rental-list">
+  @if (isLoading) {
+    <div class="loading">Carregando aluguéis...</div>
+  }
+
+  @if (errorMessage) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  }
+
+  @if (!isLoading && !errorMessage && alugueis.length) {
+    <div class="rental-list-container">
+      <div class="header-actions">
+        <h2>Aluguéis</h2>
+        <button class="btn-primary" [routerLink]="['novo']">
+          + Adicionar
+        </button>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Cod</th>
+              <th>Cliente</th>
+              <th>Carro</th>
+              <th>Data Início</th>
+              <th>Data Fim</th>
+              <th>Valor Total</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let aluguel of alugueis">
+              <td>{{ aluguel.rental_id }}</td>
+              <td><strong>{{ aluguel.customer.name }}</strong></td>
+              <td><strong>{{ aluguel.car.name }}</strong></td>
+              <td>{{ aluguel.start_date | date:'dd/MM/yyyy' }}</td>
+              <td>{{ aluguel.end_date | date:'dd/MM/yyyy' }}</td>
+              <td>{{ aluguel.total_price | currency:'BRL' }}</td>
+              <td [ngClass]="{'em-uso': aluguel.status, 'devolvido': !aluguel.status}">
+                <strong>{{ aluguel.status | appRentalPipe }}</strong>
+              </td>
+              <td class="actions">
+                <button class="btn-icon edit" (click)="onEdit(aluguel)">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button class="btn-icon delete" (click)="onDelete(aluguel)">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  }
+
+  @if (!isLoading && !errorMessage && !alugueis.length) {
+    <div class="no-rentals">
+      Nenhum aluguel encontrado
+    </div>
+  }
+</div>

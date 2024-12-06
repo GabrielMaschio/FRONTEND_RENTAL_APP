@@ -1,0 +1,31 @@
+
+<section class="main-section">
+  <div class="text-content">
+    <h1>Diversas marcas e modelos.</h1>
+    <h1>Encontre o carro que mais combina com você!</h1>
+    <p>Você escolhe o veículo, o plano mensal e a franquia de quilometragem mensal desejada e nós iremos entregar seu carro em casa, com tudo incluso: documentação, IPVA, licenciamento, emplacamento, seguro e manutenções. Tudo isso por uma mensalidade fixa. Sem dor de cabeça, sem stress. Ao fim do contrato, basta devolver o veículo ou solicitar uma extensão em seu contrato.</p>
+  </div>
+
+  <div class="cars-list">
+    <div class="text-wrapper">
+      <h2>Grupo de carros</h2>
+
+      <div></div>
+    </div>
+
+    <div class="cars" *ngIf="cars.length > 0; else noCars">
+      <app-car-card
+        *ngFor="let car of cars"
+        [car]="car"
+      ></app-car-card>
+    </div>
+
+    <ng-template #noCars>
+      <div class="no-cars-message">
+        <mat-icon class="no-cars-icon">directions_car_off</mat-icon>
+        <h2>Nenhum carro disponível no momento!</h2>
+        <p>Todos os nossos veículos estão alugados. Por favor, tente novamente mais tarde.</p>
+      </div>
+    </ng-template>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<div class="card-wrapper">
+  <div class="card-content">
+    <h1 class="card-title">{{ car.category.name }}</h1>
+
+    <img src="/assets/images/car_category{{ car.category.category_id }}.png">
+
+    <div class="card-bottom">
+      <p>{{ car.brand }} {{ car.name }}</p>
+      <h2>R${{ car.rental_price | number:'1.2-2' }} / dia</h2>
+
+      <div class="button-wrapper">
+        <button class="rental" (click)="navigate(car.car_id)">Agendar</button>
+        <button class="show">Ver Mais</button>
+      </div>
+    </div>
+  </div>
+</div>

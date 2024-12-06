@@ -1,0 +1,328 @@
+@import "../../../../styles/variables.scss";
+
+
+#main {
+  display: flex;
+  justify-content: space-between;
+  section {
+    margin: 0 80px 0 80px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
+  .main-section {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 10rem;
+    padding: 24px;
+    margin-bottom: 80px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.10);
+
+    .title {
+      h1 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 4px;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      p {
+        color: $text-color;
+        font-size: 14px;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+    }
+
+    form {
+      display: flex;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      gap: 12rem;
+
+      .cars {
+        display: flex;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #F6F7F9;
+        border: 2px solid #B6C3D5;
+        color: rgb(0, 0, 0);
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+        padding: 12px;
+        width: 100%;
+        font-size: 16px;
+
+        i {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .form-input {
+      label {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .input-wrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+
+
+        .date-picker {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: $text-color;
+          background-color: #F6F7F9;
+          border: 2px solid #B6C3D5;
+          max-height: 58px;
+          max-width: 200px;
+          padding: 12px 26px;
+          border-radius: 8px 0 0 8px;
+
+          div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 100%;
+
+            input {
+              height: 100%;
+              font-size: 16px;
+              background-color: transparent;
+              border: none;
+              max-width: 110px;
+            }
+          }
+
+          button {
+            display: flex;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+
+            i {
+              font-size: 24px;
+              color: $text-color;
+            }
+          }
+        }
+
+        .select-input {
+          display: flex;
+          align-items: center;
+          background-color: $primary-bg;
+          gap: 12px;
+          padding: 10px 26px;
+          border-top: 2px solid #B6C3D5;
+          border-bottom: 2px solid #B6C3D5;
+          border-right: 2px solid #B6C3D5;
+          border-radius: 0 8px 8px 0;
+
+          select {
+            border: none;
+            background-color: transparent;
+            padding: 4px;
+            outline: none;
+            cursor: pointer;
+
+            &:focus {
+              box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+              border-radius: 6px;
+            }
+
+            option {
+              background-color: $primary-bg;
+              outline: none;
+              border: none;
+              border-radius: 6px;
+            }
+          }
+
+          i {
+            font-size: 20px;
+          }
+        }
+
+        input#rental_days {
+          width: 100%;
+          padding: 12px;
+          border: 2px solid #B6C3D5;
+          background-color: #F6F7F9;
+          border-radius: 8px;
+          font-size: 16px;
+          outline: none;
+          width: 380px;
+
+          &:focus {
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+          }
+        }
+      }
+    }
+  }
+
+  .rental-section {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.10);
+    margin-top: 10rem;
+    margin-bottom: 80px;
+
+    .title {
+      margin-bottom: 2rem;
+
+      h1 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 4px;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      p {
+        color: $text-color;
+        font-size: 14px;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 500;
+        width: 444px;
+      }
+    }
+
+    .rental-car {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .img {
+        display: flex;
+        width: fit-content;
+        padding: 24px 8px;
+        background-color: $primary-bg;
+        border-radius: 8px;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.10);
+
+        img {
+          width: 116px;
+          height: 60px;
+        }
+      }
+    }
+
+    .line {
+      width: 100%;
+      height: 2px;
+      background-color: $primary-bg;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin-bottom: 2rem;
+
+      .details {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          color: $text-color;
+        }
+
+        h2 {
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .cupom {
+      display: flex;
+      background-color: #F6F7F9;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+
+      input {
+        width: 100%;
+        padding: 16px 12px;
+        border: none;
+        background-color: #F6F7F9;
+        outline: none;
+        border-radius: 8px;
+      }
+
+      button {
+        padding: 16px 12px;
+        border: none;
+        background-color: #F6F7F9;
+        cursor: pointer;
+        border-radius: 8px;
+        color: black;
+        font-weight: bold;
+      }
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+
+      div {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+          font-size: 20px;
+          font-weight: bold;
+          font-family: "Plus Jakarta Sans", sans-serif;
+        }
+
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          font-family: "Plus Jakarta Sans", sans-serif;
+        }
+      }
+
+      h1 {
+        font-size: 32px;
+        font-weight: bold;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+    }
+
+    .send {
+      width: 100%;
+      padding: 18px;
+      border-radius: 8px;
+      background-color: $primary-color;
+      border: none;
+      color: white;
+      font-weight: bold;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.85;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+
+}
