@@ -44,7 +44,7 @@ export class LoginComponent {
           if (userData.role === 'customer') {
             this.router.navigate(['/home']);
           } else {
-            this.router.navigate(['/admin']);
+            this.router.navigate(['/admin/clientes']);
           }
         },
         error: (err) => {

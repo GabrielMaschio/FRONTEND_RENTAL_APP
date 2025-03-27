@@ -16,7 +16,7 @@ export class SidebarComponent {
 
   async onLogout(): Promise<void> {
     try {
-      await this.loginService.logout();
+      this.loginService.logout();
       await this.router.navigate(['/login']);
     } catch (error) {
       console.error('Erro ao realizar logout:', error);

@@ -6,6 +6,7 @@ import { CarService } from '../service/car.service';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService, Category } from '../service/category.service';
 import { UpdateCar } from '../types/car.types';
+
 @Component({
   selector: 'app-car-form',
   standalone: true,
