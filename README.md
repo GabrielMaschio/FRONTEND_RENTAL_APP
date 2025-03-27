@@ -1,27 +1,38 @@
-# FRONTEND
+# 🚗 Frontend – Sistema de Aluguel de Veículos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.2.
+Este é o frontend do Sistema de Aluguel de Veículos, uma aplicação web desenvolvida em **Angular** com **SCSS** para o gerenciamento de locações de carros e motos.
 
-## Development server
+O projeto foi desenvolvido como parte do aprendizado em aplicações **fullstack**.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🔧 Tecnologias Utilizadas
 
-## Code scaffolding
+- Angular
+- SCSS
+- Angular Router
+- Angular Services
+- Consumo de API REST via HttpClient
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 📌 Funcionalidades
 
-## Build
+- Tela de login e autenticação (com token JWT)
+- Cadastro e listagem de veículos
+- Cadastro e listagem de clientes
+- Realização e controle de aluguéis
+- Visualização e edição de dados
+- Layout responsivo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Como Executar
 
-## Running unit tests
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/GabrielMaschio/FRONTEND_RENTAL_APP
+   cd FRONTEND_RENTAL_APP
+2. Instale as dependências:  
+   `npm install`
+3. Rode a aplicação Angular:  
+   `ng serve`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 📄 Licença
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este projeto está sob a licença MIT.  
+Desenvolvido por Gabriel Maschio 🚀
