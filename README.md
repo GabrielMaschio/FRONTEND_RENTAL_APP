@@ -38,7 +38,7 @@ Repositório: [FRONTEND_RENTAL_APP](https://github.com/GabrielMaschio/FRONTEND_R
 ![Tela Inicial](images/tela_inicial.png)
 
 ### Tela de Veículos
-![Tela de Veículos](images/tela_veiculo.png)
+![Tela de Veículos](images/tela_veiculos.png)
 
 ### Tela de Aluguel
 ![Tela de Aluguel](images/tela_aluguel.png)
