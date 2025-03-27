@@ -26,6 +26,30 @@ Repositório: [FRONTEND_RENTAL_APP](https://github.com/GabrielMaschio/FRONTEND_R
 - Controle de aluguéis
 - Layout responsivo e usabilidade intuitiva
 
+## 🖼️ Protótipos
+
+### Tela de Login
+![Tela de Login](images/tela_login.png)
+
+### Tela de Cadastro
+![Tela de Cadastro](images/tela_cadastro.png)
+
+### Tela Inicial
+![Tela Inicial](images/tela_inicial.png)
+
+### Tela de Veículos
+![Tela de Veículos](images/tela_veiculo.png)
+
+### Tela de Aluguel
+![Tela de Aluguel](images/tela_aluguel.png)
+
+### Tela de Sucesso do Aluguel
+![Tela de Sucesso do Aluguel](images/tela_sucesso_aluguel.png)
+
+### Tela de Locações
+![Tela de Locações](images/tela_locacao.png)
+
+
 ### 🚀 Como Executar o Frontend
 
 ```bash
